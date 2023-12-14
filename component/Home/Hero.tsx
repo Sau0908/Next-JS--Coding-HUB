@@ -5,7 +5,7 @@ const Hero: React.FC = () => {
   return (
     <div className="flex flex-col md:flex-row bg-slate-100">
       {/* Carousel */}
-      <div className=" mt-6 md:w-1/2">
+      <div className=" mt-6 md:mt-12 md:w-1/2">
         <Carousel />
       </div>
 

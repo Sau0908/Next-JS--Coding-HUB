@@ -17,7 +17,7 @@ const Carousel: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 4000); // Change slides every 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [currentSlide]);
@@ -26,7 +26,6 @@ const Carousel: React.FC = () => {
     <div className="flex justify-start">
       <div className="max-w-lg w-full mx-auto">
         {" "}
-        {/* Adjust alignment by adding left padding */}
         <div className="flex items-center">
           <div className="w-full relative">
             <div className="overflow-hidden rounded-lg">

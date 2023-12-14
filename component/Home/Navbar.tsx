@@ -55,27 +55,56 @@ const Navbar: React.FC = () => {
             CODING HUB
           </div>
         </Link>
+        <div className="lg:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-white text-2xl focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-8 w-8 ${isOpen ? "hidden" : "block"}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M2.293 7.293a1 1 0 011.414-1.414L10 12.586l6.293-6.293a1 1 0 111.414 1.414l-7 7a1 1 0 01-1.414 0l-7-7a1 1 0 01-1.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className={`h-8 w-8 ${isOpen ? "block" : "hidden"}`}
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M13.293 6.293a1 1 0 010 1.414L11.414 10l1.879 1.879a1 1 0 11-1.414 1.414L10 11.414l-1.879 1.879a1 1 0 11-1.414-1.414L8.586 10 6.707 8.121a1 1 0 111.414-1.414L10 8.586l1.879-1.879a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
         <ul
-          className={`hidden lg:flex space-x-4 items-center ${
+          className={`${
             isOpen ? "block" : "hidden"
-          }`}
+          } lg:flex lg:space-x-4 lg:items-center flex-col lg:flex-row`}
         >
-          <div className="flex items-end space-x-4">
-            {menuItems.map((item, index) => (
-              <li key={index}>
-                <div
-                  onClick={() => handleMenuItemClick(item.link)}
-                  className={`text-white text-xl cursor-pointer ${
-                    isAuthenticated || item.name === "Home"
-                      ? ""
-                      : "text-gray-300"
-                  }`}
-                >
-                  {item.name}
-                </div>
-              </li>
-            ))}
-          </div>
+          {menuItems.map((item, index) => (
+            <li key={index} className="mb-3 lg:mb-0">
+              <div
+                onClick={() => handleMenuItemClick(item.link)}
+                className={`text-white text-xl cursor-pointer ${
+                  (isAuthenticated || item.name === "Home") && isOpen
+                    ? ""
+                    : "text-gray-300"
+                }`}
+              >
+                {item.name}
+              </div>
+            </li>
+          ))}
           {isAuthenticated ? (
             <li>
               <button
