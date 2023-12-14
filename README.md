@@ -11,4 +11,4 @@ Component folder include various other folder that are aboutus , auth , contactu
 aboutus , course and contactus include nothing just simple dummy page , auth contain login and logout form , whereas home folder contain the home page and the starting point is "Main.tsx"
 
 npm i ---for installing all dependencies
-npm run dev
+npm run dev --for start the project
