@@ -6,6 +6,7 @@ import { Dispatch } from "redux";
 import { RootState } from "@/store/combineReducers";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+ import 'react-toastify/dist/ReactToastify.css';
 
 interface MenuItem {
   name: string;
