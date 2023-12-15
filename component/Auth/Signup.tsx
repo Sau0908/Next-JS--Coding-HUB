@@ -17,19 +17,19 @@ const Signup = () => {
     event.preventDefault();
 
     if (password.length < 7) {
-      // Display an error message here or handle it accordingly
+      
       console.error("Password should be at least 7 characters long.");
       return;
     }
 
     try {
-      // Dispatch the signUpAsync action with the provided email and password
+    
       dispatch(signUpAsync({ email: email, password: password }));
 
       console.log("signup Sucess");
       router.push("/");
     } catch (error) {
-      // Handle error gracefully
+    
       console.error("Error creating user:", error);
     }
   };
