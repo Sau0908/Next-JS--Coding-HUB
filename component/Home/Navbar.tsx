@@ -47,6 +47,7 @@ const Navbar: React.FC = () => {
 
   const handleMenuItemClick = (link: string) => {
     if (!isAuthenticated && link !== "/" && link !== "/auth") {
+     toast.error("First Please Login");
       router.push("/auth");
     } else {
       const cleanUrl = link.replace("#", "");
