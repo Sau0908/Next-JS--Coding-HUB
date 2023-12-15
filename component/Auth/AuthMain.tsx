@@ -5,6 +5,8 @@ import { useRouter } from "next/router";
 import { signInWithGoogleAsync } from "@/redux/authSlice";
 import { Dispatch } from "redux";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AuthMain = () => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -12,9 +14,11 @@ const AuthMain = () => {
   const handleWithGoogle = async () => {
     try {
       await dispatch(signInWithGoogleAsync());
+      toast.success("Login Success");
       router.push("/");
     } catch (error) {
       console.log("error");
+      toast.error("Error Occurred!");
     }
   };
   const handleWithEmail = () => {

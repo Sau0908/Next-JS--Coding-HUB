@@ -5,6 +5,7 @@ import { logoutAsync } from "@/redux/authSlice";
 import { Dispatch } from "redux";
 import { RootState } from "@/store/combineReducers";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 interface MenuItem {
   name: string;
@@ -29,7 +30,12 @@ const Navbar: React.FC = () => {
   };
 
   const handleLogout = () => {
-    dispatch(logoutAsync());
+    try {
+      dispatch(logoutAsync());
+      toast.success("User Logout");
+    } catch (error) {
+      toast.error("Error Occured!");
+    }
   };
 
   const checkAuth = () => {

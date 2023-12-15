@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { signUpAsync, signInWithGoogleAsync } from "@/redux/authSlice";
 import { Dispatch } from "redux";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
   const dispatch: Dispatch<any> = useDispatch();
@@ -17,20 +19,20 @@ const Signup = () => {
     event.preventDefault();
 
     if (password.length < 7) {
-      
       console.error("Password should be at least 7 characters long.");
+      toast.error("Password should be at least 7 characters long.");
       return;
     }
 
     try {
-    
       dispatch(signUpAsync({ email: email, password: password }));
 
       console.log("signup Sucess");
+      toast.success("Signup Success");
       router.push("/");
     } catch (error) {
-    
       console.error("Error creating user:", error);
+      toast.error("Error Occured!");
     }
   };
   const handleGoogle = async () => {

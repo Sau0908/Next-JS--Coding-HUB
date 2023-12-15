@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginAsync } from "@/redux/authSlice";
 import { Dispatch } from "redux";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -10,16 +12,16 @@ const Login = () => {
   const dispatch: Dispatch<any> = useDispatch();
   const router = useRouter();
 
-  
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       await dispatch(loginAsync({ email, password }));
       console.log("Login Successful");
+      toast.success("Login Succesfull");
       router.push("/");
     } catch (error) {
       console.log("Login failed");
+      toast.error("Login Failed");
     }
   };
 
@@ -45,12 +47,9 @@ const Login = () => {
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md shadow-md transition duration-300 ease-in-out"
-          
           >
             Log In
           </button>
-
-          
         </form>
       </div>
     </div>
