@@ -5,10 +5,10 @@ const Footer: React.FC = () => {
     <footer className="bg-gray-800 text-white py-12">
       <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4">
         <div className="lg:order-last">
-          <div className="text-lg font-semibold mb-4">Your Logo</div>
+          <div className="text-lg font-semibold mb-4">CODING HUB</div>
           <div className="text-center lg:text-right">
             <p className="text-gray-400">123 Street, City, Country</p>
-            <p className="text-gray-400">Email: info@example.com</p>
+            <p className="text-gray-400">Email: xyz@adc.com</p>
             <p className="text-gray-400">Phone: +123456789</p>
           </div>
         </div>
@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
           </li>
           <li>
             <a href="#" className="block hover:text-gray-300">
-              Services
+              Course
             </a>
           </li>
           <li>
