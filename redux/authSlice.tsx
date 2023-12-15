@@ -9,23 +9,23 @@ import {
   createUserWithEmailAndPassword,
 } from "firebase/auth";
 import app from "@/Firebase";
-// Define initial state
+//  initial state
 const auth = getAuth(app);
 interface AuthState {
   user: User | null;
   isLoading: boolean;
   error: string | null;
-  isLoggedIn: boolean; // Added property for login status
+  isLoggedIn: boolean; 
 }
 
 const initialState: AuthState = {
   user: null,
   isLoading: false,
   error: null,
-  isLoggedIn: false, // Initialized as false
+  isLoggedIn: false, 
 };
 
-// Define the login action
+
 interface LoginPayload {
   email: string;
   password: string;
@@ -48,7 +48,6 @@ export const loginAsync = createAsyncThunk<User, LoginPayload>(
   }
 );
 
-// Define the signup action
 interface SignUpPayload {
   email: string;
   password: string;
@@ -97,7 +96,7 @@ export const signInWithGoogleAsync = createAsyncThunk<User>(
   }
 );
 
-// Define the auth slice
+//  auth slice
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -137,11 +136,11 @@ const authSlice = createSlice({
       .addCase(signInWithGoogleAsync.fulfilled, (state, action) => {
         state.isLoading = false;
         state.user = action.payload;
-        state.isLoggedIn = true; // Set to true upon successful Google sign-in
+        state.isLoggedIn = true; 
       })
       .addCase(signInWithGoogleAsync.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload as string; // Handle error if Google sign-in fails
+        state.error = action.payload as string; 
       });
   },
 });
