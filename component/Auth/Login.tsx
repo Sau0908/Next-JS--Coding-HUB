@@ -10,7 +10,7 @@ const Login = () => {
   const dispatch: Dispatch<any> = useDispatch();
   const router = useRouter();
 
-  // Get error state from Redux store
+  
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,12 +45,12 @@ const Login = () => {
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-4 rounded-md shadow-md transition duration-300 ease-in-out"
-            // Disable button when the form is being submitted
+          
           >
             Log In
           </button>
 
-          {/* Show error message if there is an error */}
+          
         </form>
       </div>
     </div>
