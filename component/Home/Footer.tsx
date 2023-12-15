@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
           <div className="text-lg font-semibold mb-4">CODING HUB</div>
           <div className="text-center lg:text-right">
             <p className="text-gray-400">123 Street, City, Country</p>
-            <p className="text-gray-400">Email: xyz@adc.com</p>
+            <p className="text-gray-400">Email: xyz@abc.com</p>
             <p className="text-gray-400">Phone: +123456789</p>
           </div>
         </div>
